@@ -1,25 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Sport Venue Booking</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Sports Venue Booking Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Sport Venue Booking</h1>
-<div id="app">
-    <form id="booking-form">
-        <label for="venue">Venue:</label>
-        <input type="text" id="venue" required>
-        <label for="date">Date:</label>
-        <input type="date" id="date" required>
-        <label for="time">Time:</label>
-        <input type="time" id="time" required>
-        <button type="submit">Book</button>
-    </form>
-    <h2>Bookings</h2>
-    <ul id="booking-list"></ul>
-</div>
-<script src="script.js"></script>
+  <header>
+    <h1>Sports Venue Booking</h1>
+    <nav>
+      <ul>
+        <li><a href="#" id="nav-booking" class="active">Book Venue</a></li>
+        <li><a href="#" id="nav-manage">Manage Properties</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Booking section -->
+    <section id="booking-section" class="active-section">
+      <h2>Book a Venue</h2>
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="booking-property">Venue</label>
+          <select id="booking-property" required>
+            <!-- Options populated by script -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="booking-date">Date</label>
+          <input type="date" id="booking-date" required>
+        </div>
+        <div class="form-group">
+          <label for="booking-time">Time</label>
+          <input type="time" id="booking-time" required>
+        </div>
+        <button type="submit" class="primary-btn">Book</button>
+      </form>
+      <h3>Upcoming Bookings</h3>
+      <ul id="booking-list" class="list"></ul>
+    </section>
+
+    <!-- Manage properties section -->
+    <section id="manage-section" class="hidden-section">
+      <h2>Manage Your Properties</h2>
+      <form id="property-form">
+        <div class="form-group">
+          <label for="property-name">Name</label>
+          <input type="text" id="property-name" required>
+        </div>
+        <div class="form-group">
+          <label for="property-location">Location</label>
+          <input type="text" id="property-location" required>
+        </div>
+        <div class="form-group">
+          <label for="property-capacity">Capacity</label>
+          <input type="number" id="property-capacity" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="property-price">Price (per hour)</label>
+          <input type="number" id="property-price" min="0" step="0.01" required>
+        </div>
+        <button type="submit" class="primary-btn">Add Property</button>
+      </form>
+
+      <h3>Your Properties</h3>
+      <ul id="property-list" class="list"></ul>
+
+      <h3>Bookings for Your Properties</h3>
+      <ul id="owner-booking-list" class="list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sports Venue Booking Platform</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
